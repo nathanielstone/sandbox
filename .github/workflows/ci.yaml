@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  pull_request:
+    types: ["opened", "synchronize"]
+    paths-ignore:
+      - "README.md"
+  push:
+    branches:
+      - main
+jobs:
+  tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Echo Hello
+        run: |
+          echo "Hello world"
